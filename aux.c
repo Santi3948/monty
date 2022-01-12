@@ -6,16 +6,17 @@
  */
 int isnumber(char *str)
 {
-        int i = 0;
-        while(str[i])
-        {
-                if(str[i] < 48 || str[i] > 57)
-                {
-                        return (0);
-                }
-                i++;
-        }
-        return (1);
+	int i = 0;
+
+	while (str[i])
+	{
+		if (str[i] < 48 || str[i] > 57)
+		{
+			return (0);
+		}
+	i++;
+	}
+	return (1);
 }
 /**
  * add_dnodeint - adds a new node at the beginning of a dlistint_t list.
@@ -25,56 +26,62 @@ int isnumber(char *str)
  */
 stack_t *add_dnodeint(stack_t **head, const int n)
 {
-        stack_t *aux = malloc(sizeof(stack_t));
+	stack_t *aux = malloc(sizeof(stack_t));
 
-        if (!aux)
-                return (NULL);
-        aux->next = NULL;
-        aux->prev = NULL;
-        aux->n = n;
-        if (*head)
-        {
-                (*head)->prev = aux;
-                aux->next = *head;
-                (*head) = aux;
-        }
-        else
-                (*head) = aux;
-        return (*head);
+	if (!aux)
+		return (NULL);
+	aux->next = NULL;
+	aux->prev = NULL;
+	aux->n = n;
+	if (*head)
+	{
+		(*head)->prev = aux;
+		aux->next = *head;
+		(*head) = aux;
+	}
+	else
+		(*head) = aux;
+	return (*head);
 }
 /**
  * print_dlistint - prints all the elements of a dlistint_t list.
- * @h: list
+ * @list: the list
  * Return: the number of nodes
  */
-size_t print_dlistint(const stack_t *h)
+void print_dlistint(stack_t **list)
 {
-        size_t i;
+	size_t i;
+	stack_t *aux = *list;
 
-        for (i = 0; h; i++)
-        {
-                printf("%d\n", h->n);
-                h = h->next;
-        }
-        return (i);
+	for (i = 0; aux; i++)
+	{
+		printf("%d\n", aux->n);
+		aux = aux->next;
+	}
 }
-void switch_(stack_t *list, char **tokenized)
+/**
+ * switch_ - switch
+ * @list: the list
+ * @tokenized: tokenized
+ * @line_count: ln
+ */
+void switch_(stack_t **list, char **tokenized, int line_count)
 {
-                if(tokenized[0])
-                {
-                        if(!strcmp(tokenized[0], "push"))
-                                push_(stack_t *list, char **tokenized);
-                        else if(!strcmp(tokenized[0], "pall"))
-                                        print_dlistint(list);
-                        else if(!strcmp(tokenized[0], "pint"))
-                                pint_(list);
-                        else if(!strcmp(tokenized[0], "pop"))
-                                pop_(list);
-                        else if(!strcmp(tokenized[0], "swap"))
-                                swap_(&list);
-                        else if(!strcmp(tokenized[0], "add"))
-                                add_(&list);
-                        else if(!strcmp(tokenized[0], "nop"))
-                                ;
-                }
+if (tokenized[0])
+{
+	if (!strcmp(tokenized[0], "push"))
+		push_(list, tokenized, line_count);
+	else if (!strcmp(tokenized[0], "pall"))
+		print_dlistint(list);
+	else if (!strcmp(tokenized[0], "pint"))
+		pint_(list, line_count);
+	else if (!strcmp(tokenized[0], "pop"))
+		pop_(list, line_count);
+	else if (!strcmp(tokenized[0], "swap"))
+		swap_(list, line_count);
+	else if (!strcmp(tokenized[0], "add"))
+		add_(list, line_count);
+	else if (!strcmp(tokenized[0], "nop"))
+		;
+}
 }

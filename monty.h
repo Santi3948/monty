@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <unistd.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,9 +35,13 @@ typedef struct instruction_s
 } instruction_t;
 size_t dlistint_len(const stack_t *h);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-void push_(stack_t *list, char **tokenized);
-void pint_(stack_t *list);
-void pop_(stack_t *list);
-void swap_(stack_t **list);
-void add_(stack_t **list);
+void push_(stack_t **list, char **tokenized, int line_count);
+void pint_(stack_t **list, int line_count);
+void pop_(stack_t **list, int line_count);
+void swap_(stack_t **list, int line_count);
+void add_(stack_t **list, int line_count);
+int isnumber(char *str);
+stack_t *add_dnodeint(stack_t **head, const int n);
+void print_dlistint(stack_t **list);
+void switch_(stack_t **list, char **tokenized, int line_count);
 #endif

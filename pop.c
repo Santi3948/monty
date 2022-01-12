@@ -26,7 +26,7 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 	unsigned int i = 0;
 	size_t size = dlistint_len(*head);
 
-	if (!head || !*head || index >= size)
+	if (!head || !*head || index > size)
 		return (-1);
 	while (aux)
 	{
