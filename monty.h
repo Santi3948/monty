@@ -34,16 +34,20 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+char **tokenized;
 size_t dlistint_len(const stack_t *h);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-void push_(stack_t **list, char **tokenized, int line_count);
-void pint_(stack_t **list, int line_count);
-void pop_(stack_t **list, int line_count);
-void swap_(stack_t **list, int line_count);
-void add_(stack_t **list, int line_count);
+void push_(stack_t **stack, unsigned int line_number);
+void pint_(stack_t **stack, unsigned int line_number);
+void pop_(stack_t **stack, unsigned int line_number);
+void swap_(stack_t **stack, unsigned int line_number);
+void pall_(stack_t **stack, unsigned int line_number);
+void nop_(stack_t **stack, unsigned int line_number);
+void add_(stack_t **stack, unsigned int line_number);
 int isnumber(char *str);
 stack_t *add_dnodeint(stack_t **head, const int n);
 void print_dlistint(stack_t **list);
 void switch_(stack_t **list, char **tokenized, int line_count);
 ssize_t getline(char **x, size_t *y, FILE *file);
+instruction_t fstruc(int j);
 #endif

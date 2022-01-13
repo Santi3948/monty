@@ -59,30 +59,3 @@ void print_dlistint(stack_t **list)
 		aux = aux->next;
 	}
 }
-/**
- * switch_ - switch
- * @list: the list
- * @tokenized: tokenized
- * @line_count: ln
- */
-void switch_(stack_t **list, char **tokenized, int line_count)
-{
-if (tokenized[0])
-{
-	if (!strcmp(tokenized[0], "push"))
-		push_(list, tokenized, line_count);
-	else if (!strcmp(tokenized[0], "pall"))
-		print_dlistint(list);
-	else if (!strcmp(tokenized[0], "pint"))
-		pint_(list, line_count);
-	else if (!strcmp(tokenized[0], "pop"))
-		pop_(list, line_count);
-	else if (!strcmp(tokenized[0], "swap"))
-		swap_(list, line_count);
-	else if (!strcmp(tokenized[0], "add"))
-		add_(list, line_count);
-	else if (!strcmp(tokenized[0], "nop"))
-	{};
-
-}
-}
