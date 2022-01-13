@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -44,4 +45,5 @@ int isnumber(char *str);
 stack_t *add_dnodeint(stack_t **head, const int n);
 void print_dlistint(stack_t **list);
 void switch_(stack_t **list, char **tokenized, int line_count);
+ssize_t getline(char **x, size_t *y, FILE *file);
 #endif

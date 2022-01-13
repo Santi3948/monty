@@ -7,13 +7,13 @@
  * @env: array of strings, each string is an env variable
  * Return: Always 0
  */
-int main(UNUSED int argc, UNUSED char **argv, UNUSED char **env)
+int main(UNUSED int argc, char **argv, UNUSED char **env)
 {
 	FILE *fp;
 	size_t len = 1024;
 	char *line = malloc(len), *token, **tokenized = malloc(1024 * sizeof(char *));
 	ssize_t read;
-	int i = 0, ln = 0, aux, add = 0, line_count = 0;
+	int i = 0, line_count = 0;
 	stack_t *list = malloc(sizeof(stack_t));
 
 	list = NULL;

@@ -82,6 +82,7 @@ if (tokenized[0])
 	else if (!strcmp(tokenized[0], "add"))
 		add_(list, line_count);
 	else if (!strcmp(tokenized[0], "nop"))
-		;
+	{};
+
 }
 }
