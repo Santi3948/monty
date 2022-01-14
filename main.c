@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char *line, *token, **tokenized = malloc(1024 * sizeof(char *));
 	ssize_t read;
 	int i = 0, line_number = 0;
-	stack_t *list = malloc(sizeof(stack_t));
+	stack_t *list;
 
 	list = NULL;
 	if (argc != 2)
