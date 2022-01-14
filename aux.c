@@ -10,7 +10,7 @@ int isnumber(char *str)
 
 	while (str[i])
 	{
-		if (str[i] < 48 || str[i] > 57 || (i == 0 && str[i] == "-"))
+		if (str[i] < 48 || str[i] > 57 || (i == 0 && str[i] != '-'))
 		{
 			return (0);
 		}
