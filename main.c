@@ -7,17 +7,17 @@
  * @env: array of strings, each string is an env variable
  * Return: Always 0
  */
-int main(UNUSED int argc, char **argv, UNUSED char **env)
+int main(int argc, char **argv)
 {
 	FILE *fp;
 	size_t len = 1024;
-	char *line = malloc(len), *token;
+	char *line, *token, **tokenized = malloc(1024 * sizeof(char *));
 	ssize_t read;
 	int i = 0, line_number = 0;
 	stack_t *list = malloc(sizeof(stack_t));
 
-	tokenized = malloc(1024 * sizeof(char *)), list = NULL;
-	if (!argv[1] || access(argv[1], F_OK) != 0 || argv[2])
+	list = NULL;
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -25,7 +25,7 @@ int main(UNUSED int argc, char **argv, UNUSED char **env)
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	read = getline(&line, &len, fp);

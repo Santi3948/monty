@@ -10,7 +10,7 @@ void push_(stack_t **stack, unsigned int line_number)
 		add_dnodeint(stack, atoi(tokenized[1]));
 	else
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -23,7 +23,7 @@ void pint_(stack_t **stack, unsigned int line_number)
 {
 	if (!(*stack))
 	{
-		fprintf(stderr, "L<%d>: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -37,7 +37,7 @@ void pop_(stack_t **stack, unsigned int line_number)
 {
 	if (delete_dnodeint_at_index(stack, 0) == -1)
 	{
-		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -52,7 +52,7 @@ void swap_(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L<%d>: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = (*stack)->n;
@@ -68,7 +68,7 @@ void add_(stack_t **stack, unsigned int line_number)
 {
 if (!(*stack) || !(*stack)->next)
 {
-	fprintf(stderr, "L<%d>: can't add, stack too short\n", line_number);
+	fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 }
 (*stack)->next->n = (*stack)->next->n + (*stack)->n;
