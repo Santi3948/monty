@@ -4,7 +4,6 @@
  * main - Stacks, Queues - LIFO, FIFO
  * @argc: num of arguments
  * @argv: array of strings, each string is an argument
- * @env: array of strings, each string is an env variable
  * Return: Always 0
  */
 int main(int argc, char **argv)
